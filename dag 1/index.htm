@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>HTML Template til React</title>
+</head>
+
+<body>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const root = ReactDOM.createRoot(document.getElementById('root'))
+        // Her skal du indsætte din react kode
+
+        const Tekst = () => {
+            return <h1>JSX er dejlig til mavsen</h1>
+        }
+
+        const Summary = () => {
+            return <h1>{10 * 10}</h1>
+        }
+
+
+        const FavoritMad = () => {
+            return (
+                <ol>
+                    <li>Frokost</li>
+                    <li>Aftensmad</li>
+                    <li>pasta</li>
+                </ol>
+            )
+        }
+
+        const Paragraf = () => {
+            return (
+                <>
+                    <p>den første paragraf</p>
+                    <p>den næste</p>
+                </>
+            )
+        }
+        const FragmentPara = () => {
+            return (
+                (<Paragraf />)
+            )
+        }
+
+        const Sektion = () => {
+            return (
+                <section className="mainwrapper">du ved her skal sectionen være, eller den findes her, hehe </section>
+            )
+        }
+
+        const Klokken = () => {
+            const x = 10;
+            let text = "godMORGEN"
+            if (x < 12) {
+                text = "GodAFTEN"
+            }
+            return <p>{text}</p>
+        }
+
+        const KlokkenTenary = () => {
+            const z = 10;
+            let text = <p>{(z) < 12 ? 'Godmorgen' : 'GodDag!'} </p>
+            return text
+        }
+
+        const SamletSet = () => {
+            return <> <Tekst />
+                <Summary />
+                <FavoritMad />
+                <Paragraf />
+                <FragmentPara />
+                <Sektion />
+                <Klokken />
+                <KlokkenTenary />
+            </>
+        }
+
+
+
+
+        root.render(<SamletSet />)
+    </script>
+
+</body>
+
+</html>
